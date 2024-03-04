@@ -1,0 +1,69 @@
+Reset Configuration
+Terminal
+tool user-manager
+database clear
+y
+database clear-log
+y
+
+1. bip > dhcp client > + ether 1
+  ip > addresses > + ether 2 192.168.1/25
+                   + wlan 1 192.168.200.1/24
+  ip > dhcp server > dhcp setup > wlan 1 + ether 2 jadi 100
+
+2. wireless > centang > dll
+
+3. ip > firewall > nat > + > outinterfaces ether 1 > action masquarade
+   filter rules > + > input > src 192.168.100.2 - 192.168.100.50
+                              dst 192.168.100.1 
+                              protocol icmp > action reject
+   
+   forward > src 192.168.100.50 - 192.168.100.100
+   dst 192.168.200.0/24 
+   protocol icmp
+
+4. input log tcp {Akses Router > }
+
+5. forward tcp tkj.skatra-tpi.sch.id action > drop
+
+6. forward tcp .mp3 action > drop
+
+7. forward tcp .mkv action > drop
+
+8. hotspot > admin pass 123 [wlan 1]
+
+9. server profile > use Radius 
+
+10. Radius > + hotspot > secret 123 address 127.0.0.1
+
+11. system > SNTP Client > Enabled > primary > id.pool.ntp.org [apply oke]
+
+12. 192.168.1/userman
+
+13. Router > add > voucher Internet > 127.0.0.1 > 123 > add
+
+14. profiles > voucher Internet 20Gb > price 20.000 
+
+15. Add New Limition > 20G > save Profiles
+
+16. setting > templates > header&Row > save
+
+17. user > batch > number user 20 > 3 > add
+
+!8. Generate > vouchers > add
+
+19. wifi properties
+    ip 192.168.2 atau 51
+    sb 192.168.100.1
+    
+    tes ping 192.168.100.1
+    tes ping 192.168.200.100
+
+20. time firewall > 15-16 jam -16
+
+
+
+
+
+                 
+ 
